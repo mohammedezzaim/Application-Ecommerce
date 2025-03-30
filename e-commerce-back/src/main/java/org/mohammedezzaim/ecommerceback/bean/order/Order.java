@@ -17,7 +17,7 @@ public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private Long id;
+    private Integer id;
 
     @Column(name = "ref")
     private String ref;
@@ -55,7 +55,7 @@ public class Order {
     @JoinColumn(name = "administrator")
     private Administrator administrator;
 
-    public Order(Long id, String ref, BigDecimal price, String imageUrl, String description, OrderStatus status, Customer customer, Vendor vendor, List<OrderProduct> orderProduct, DeliverAgent deliverAgent, Administrator administrator) {
+    public Order(Integer id, String ref, BigDecimal price, String imageUrl, String description, OrderStatus status, Customer customer, Vendor vendor, List<OrderProduct> orderProduct, DeliverAgent deliverAgent, Administrator administrator) {
         this.id = id;
         this.ref = ref;
         this.price = price;
@@ -73,11 +73,11 @@ public class Order {
 
     }
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

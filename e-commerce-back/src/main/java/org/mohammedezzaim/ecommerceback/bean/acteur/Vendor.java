@@ -13,7 +13,7 @@ public class Vendor extends Person{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private Long id;
+    private Integer id;
 
     @Column(name = "storename")
     private String storeName;
@@ -27,7 +27,7 @@ public class Vendor extends Person{
     @ManyToOne
     private Administrator administrator;
 
-    public Vendor(Long id, String storeName, List<Product> products, List<Order> orders, Administrator administrator) {
+    public Vendor(Integer id, String storeName, List<Product> products, List<Order> orders, Administrator administrator) {
         this.id = id;
         this.storeName = storeName;
         this.products = products;
@@ -39,11 +39,11 @@ public class Vendor extends Person{
 
     }
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

@@ -15,7 +15,7 @@ public class Customer extends Person{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private Long id;
+    private Integer id;
 
 //    @OneToMany(mappedBy = "person", cascade = CascadeType.ALL)
 //    private List<Address> addresses;
@@ -26,11 +26,11 @@ public class Customer extends Person{
     @OneToMany(mappedBy = "customer",fetch = FetchType.LAZY , cascade = CascadeType.ALL)
     private List<Order> orders;
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

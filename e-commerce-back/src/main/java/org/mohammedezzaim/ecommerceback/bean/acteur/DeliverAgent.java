@@ -14,7 +14,7 @@ public class DeliverAgent extends Person{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private Long id;
+    private Integer id;
 
     @Column(name = "zone")
     private String zone;
@@ -29,11 +29,11 @@ public class DeliverAgent extends Person{
     @ManyToOne
     private Administrator administrator;
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

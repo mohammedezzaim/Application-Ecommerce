@@ -12,7 +12,7 @@ public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private Long id;
+    private Integer id;
 
     @Column(name = "ref" ,unique = true, nullable = false)
     private String ref;
@@ -38,7 +38,7 @@ public class Category {
 
     }
 
-    public Category(Long id, String ref, String name, String description, BigDecimal percentage, Set<Product> products, Administrator administrator) {
+    public Category(Integer id, String ref, String name, String description, BigDecimal percentage, Set<Product> products, Administrator administrator) {
         this.id = id;
         this.ref = ref;
         this.name = name;
@@ -48,11 +48,11 @@ public class Category {
         this.administrator = administrator;
     }
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

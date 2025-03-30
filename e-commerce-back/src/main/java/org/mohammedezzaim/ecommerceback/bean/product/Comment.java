@@ -13,7 +13,7 @@ public class Comment {
      @Id
      @GeneratedValue(strategy = GenerationType.IDENTITY)
      @Column(name = "id")
-     private Long id;
+     private Integer id;
 
      @Column(name = "commentaire" , columnDefinition = "TEXT")
      private String commentCustomer;
@@ -33,11 +33,11 @@ public class Comment {
      @JoinColumn(name = "product_id" , nullable = false)
      private Product product;
 
-     public Long getId() {
+     public Integer getId() {
           return id;
      }
 
-     public void setId(Long id) {
+     public void setId(Integer id) {
           this.id = id;
      }
 

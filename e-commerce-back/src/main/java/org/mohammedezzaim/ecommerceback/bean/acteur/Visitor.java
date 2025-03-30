@@ -14,7 +14,7 @@ public class Visitor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private Long id;
+    private Integer id;
 
     @Column(name = "sessionid")
     private String sessionId;
@@ -30,18 +30,18 @@ public class Visitor {
 
     }
 
-    public Visitor(Long id, String sessionId, LocalDateTime visitDate, List<Product> productList) {
+    public Visitor(Integer id, String sessionId, LocalDateTime visitDate, List<Product> productList) {
         this.id = id;
         this.sessionId = sessionId;
         this.visitDate = visitDate;
         this.productList = productList;
     }
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
