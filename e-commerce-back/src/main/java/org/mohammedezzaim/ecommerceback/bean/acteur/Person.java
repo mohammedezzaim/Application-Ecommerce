@@ -11,22 +11,14 @@ public abstract class Person {
     @Column(name = "ref", unique = true, nullable = false)
     private String ref;
 
-    @Column(name = "firstname")
-    private String firstName;
-
-    @Column(name = "lastname")
-    private String lastName;
-
     @Column(name = "fullname")
     private String fullName;
 
     @Column(name = "phone")
     private String number;
 
-    @Column(name = "birthday") // Corrected from "birthay" to "birthday"
+    @Column(name = "birthday")
     private LocalDateTime dateOfBirth;
-
-
 
     public String getRef() {
         return ref;
@@ -34,22 +26,6 @@ public abstract class Person {
 
     public void setRef(String ref) {
         this.ref = ref;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
     }
 
     public String getFullName() {

@@ -5,6 +5,7 @@ import org.mohammedezzaim.ecommerceback.bean.order.Order;
 import org.mohammedezzaim.ecommerceback.bean.payment.Payment;
 import org.mohammedezzaim.ecommerceback.bean.product.Category;
 import org.mohammedezzaim.ecommerceback.bean.product.Product;
+import org.mohammedezzaim.ecommerceback.security.bean.UserDetailsImpl;
 
 import java.util.List;
 import java.util.Set;
@@ -40,6 +41,10 @@ public class Administrator extends Person {
 
     @OneToMany(mappedBy = "administrator")
     private Set<Payment> payments;
+
+    @OneToOne
+    @JoinColumn(name = "user_id", nullable = false)
+    private UserDetailsImpl userDetails;
 
     public Integer getId() {
         return id;
@@ -112,5 +117,13 @@ public class Administrator extends Person {
 
     public void setPayments(Set<Payment> payments) {
         this.payments = payments;
+    }
+
+    public UserDetailsImpl getUserDetails() {
+        return userDetails;
+    }
+
+    public void setUserDetails(UserDetailsImpl userDetails) {
+        this.userDetails = userDetails;
     }
 }

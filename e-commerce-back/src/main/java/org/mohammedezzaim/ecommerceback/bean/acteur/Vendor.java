@@ -3,6 +3,7 @@ package org.mohammedezzaim.ecommerceback.bean.acteur;
 import jakarta.persistence.*;
 import org.mohammedezzaim.ecommerceback.bean.order.Order;
 import org.mohammedezzaim.ecommerceback.bean.product.Product;
+import org.mohammedezzaim.ecommerceback.security.bean.UserDetailsImpl;
 
 import java.util.List;
 
@@ -26,6 +27,10 @@ public class Vendor extends Person{
 
     @ManyToOne
     private Administrator administrator;
+
+    @OneToOne
+    @JoinColumn(name = "user_id", nullable = false)
+    private UserDetailsImpl userDetails;
 
     public Vendor(Integer id, String storeName, List<Product> products, List<Order> orders, Administrator administrator) {
         this.id = id;
@@ -77,5 +82,13 @@ public class Vendor extends Person{
 
     public void setAdministrator(Administrator administrator) {
         this.administrator = administrator;
+    }
+
+    public UserDetailsImpl getUserDetails() {
+        return userDetails;
+    }
+
+    public void setUserDetails(UserDetailsImpl userDetails) {
+        this.userDetails = userDetails;
     }
 }

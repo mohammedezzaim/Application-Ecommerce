@@ -3,6 +3,7 @@ package org.mohammedezzaim.ecommerceback.bean.acteur;
 import jakarta.persistence.*;
 import org.mohammedezzaim.ecommerceback.bean.order.Order;
 import org.mohammedezzaim.ecommerceback.enumeration.DeliveryAgentStatus;
+import org.mohammedezzaim.ecommerceback.security.bean.UserDetailsImpl;
 
 import java.util.List;
 
@@ -28,6 +29,11 @@ public class DeliverAgent extends Person{
 
     @ManyToOne
     private Administrator administrator;
+
+    @OneToOne
+    @JoinColumn(name = "user_id", nullable = false)
+    private UserDetailsImpl userDetails;
+
 
     public Integer getId() {
         return id;
@@ -67,5 +73,13 @@ public class DeliverAgent extends Person{
 
     public void setAdministrator(Administrator administrator) {
         this.administrator = administrator;
+    }
+
+    public UserDetailsImpl getUserDetails() {
+        return userDetails;
+    }
+
+    public void setUserDetails(UserDetailsImpl userDetails) {
+        this.userDetails = userDetails;
     }
 }

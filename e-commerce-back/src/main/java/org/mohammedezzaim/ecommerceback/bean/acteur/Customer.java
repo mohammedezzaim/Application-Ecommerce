@@ -3,6 +3,7 @@ package org.mohammedezzaim.ecommerceback.bean.acteur;
 import jakarta.persistence.*;
 import org.mohammedezzaim.ecommerceback.bean.order.Order;
 import org.mohammedezzaim.ecommerceback.bean.product.Comment;
+import org.mohammedezzaim.ecommerceback.security.bean.UserDetailsImpl;
 
 import java.util.List;
 
@@ -25,6 +26,10 @@ public class Customer extends Person{
 
     @OneToMany(mappedBy = "customer",fetch = FetchType.LAZY , cascade = CascadeType.ALL)
     private List<Order> orders;
+
+    @OneToOne
+    @JoinColumn(name = "user_id", nullable = false)
+    private UserDetailsImpl userDetails;
 
     public Integer getId() {
         return id;
@@ -56,5 +61,13 @@ public class Customer extends Person{
 
     public void setOrders(List<Order> orders) {
         this.orders = orders;
+    }
+
+    public UserDetailsImpl getUserDetails() {
+        return userDetails;
+    }
+
+    public void setUserDetails(UserDetailsImpl userDetails) {
+        this.userDetails = userDetails;
     }
 }

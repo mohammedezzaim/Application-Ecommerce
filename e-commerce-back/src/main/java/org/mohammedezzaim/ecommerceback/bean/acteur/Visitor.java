@@ -3,6 +3,7 @@ package org.mohammedezzaim.ecommerceback.bean.acteur;
 
 import jakarta.persistence.*;
 import org.mohammedezzaim.ecommerceback.bean.product.Product;
+import org.mohammedezzaim.ecommerceback.security.bean.UserDetailsImpl;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -25,6 +26,10 @@ public class Visitor {
     @OneToMany(fetch = FetchType.EAGER , cascade = CascadeType.ALL)
     @JoinColumn(name = "visitor_id")
     private List<Product> productList = new ArrayList<>();
+
+    @OneToOne
+    @JoinColumn(name = "user_id", nullable = false)
+    private UserDetailsImpl userDetails;
 
     public Visitor() {
 
@@ -67,5 +72,13 @@ public class Visitor {
 
     public void setProductList(List<Product> productList) {
         this.productList = productList;
+    }
+
+    public UserDetailsImpl getUserDetails() {
+        return userDetails;
+    }
+
+    public void setUserDetails(UserDetailsImpl userDetails) {
+        this.userDetails = userDetails;
     }
 }
